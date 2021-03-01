@@ -1,8 +1,9 @@
+from decimal import Decimal
 import re
 
 import vim
 
-PROCESSED = r' ?=> \d+$'
+PROCESSED = r' ?=> (\d+\.)?\d+$'
 WHITESPACE = r'\s*'
 
 # FIXME: Set up highlighting for the sums and for the parts of the lines that
@@ -64,7 +65,7 @@ def calculate_line(line):
 
 def calculate(buffer):
     return sum(
-        (int(line.split()[-1])
+        (Decimal(line.split()[-1])
          for line
          in buffer
          if re.search(PROCESSED, line)))
