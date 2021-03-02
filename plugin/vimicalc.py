@@ -12,6 +12,7 @@ WHITESPACE = r'\s*'
 # FIXME: Support units!
 # FIXME: Function to print out full calculation used (maybe debug only)
 # FIXME: Unit tests!
+# FIXME: Support thousands separators
 
 
 def main():
@@ -73,7 +74,7 @@ def calculate(buffer):
 
 def apply(total, buffer):
     line = f'TOTAL: {total}'
-    if re.match(r'^TOTAL: \d+$', buffer[-1]):
+    if re.match(r'^TOTAL: (\d+\.)?\d+$', buffer[-1]):
         buffer[-1] = line
     else:
         buffer.append(line)
