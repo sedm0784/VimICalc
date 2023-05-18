@@ -13,6 +13,9 @@ TOTAL_LINE = r'^TOTAL: -?(\d+\.)?\d+$'
 # FIXME: Support thousands separators
 # FIXME: Prevent lines being added below TOTAL
 # FIXME: Remove extra blank lines before TOTAL
+# FIXME: Configurable significant digits
+# FIXME: Line up decimal points
+# FIXME: Getting some dubious floating point results
 
 
 def main(vim):
